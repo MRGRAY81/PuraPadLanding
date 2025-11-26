@@ -118,3 +118,629 @@
     .brand-text-sub {
       font-size: 0.7rem;
       text-transform: uppercase;
+      opacity: 0.7;
+      letter-spacing: 0.14em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--text-soft);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: background var(--transition-fast), color var(--transition-fast),
+        transform 140ms ease-out;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .nav-links a.nav-primary {
+      background: rgba(255, 255, 255, 0.08);
+      padding-inline: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .nav-links a.nav-login {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding-inline: 12px;
+    }
+
+    /* HERO */
+
+    main {
+      margin-top: 12px;
+    }
+
+    .hero {
+      padding: 28px 20px 26px;
+      border-radius: 28px;
+      background: radial-gradient(circle at top left, rgba(155, 58, 249, 0.25), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(29, 163, 243, 0.14), transparent 60%),
+        linear-gradient(180deg, rgba(6, 6, 18, 0.96), rgba(10, 8, 30, 0.9));
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr);
+      row-gap: 22px;
+    }
+
+    .hero-topline {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .hero-topline span.badge {
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(155, 58, 249, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 0.72rem;
+    }
+
+    .hero-heading {
+      font-size: clamp(2.4rem, 4.2vw, 3rem);
+      line-height: 1.05;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero-sub {
+      font-size: 0.98rem;
+      max-width: 34rem;
+      color: var(--text-soft);
+      margin-bottom: 12px;
+    }
+
+    .hero-badge-row {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 22px;
+    }
+
+    .hero-badge-row span.dot {
+      margin: 0 6px;
+      opacity: 0.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn-pill {
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background var(--transition-fast), transform 140ms ease-out,
+        box-shadow var(--transition-fast), border-color var(--transition-fast);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+    }
+
+    .btn-pill.primary {
+      background: linear-gradient(135deg, #f6c94c, #ff9f3f);
+      color: #151319;
+      border-color: rgba(0, 0, 0, 0.2);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
+    }
+
+    .btn-pill.secondary {
+      background: rgba(8, 8, 20, 0.92);
+    }
+
+    .btn-pill.outline {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: none;
+    }
+
+    .btn-pill:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .btn-pill.outline:hover {
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.75);
+      margin-top: 4px;
+    }
+
+    .hero-meta-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(7, 7, 22, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta-pill span.dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    /* THREE SECTIONS — LEAGUE TABLE STYLE */
+
+    .sections {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .section-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      padding: 16px 16px 14px;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(155, 58, 249, 0.35), transparent 60%);
+      opacity: 0.7;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .section-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 4px;
+    }
+
+    .section-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .section-chip {
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(10, 15, 35, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-chip span.dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: #45ff9a;
+    }
+
+    .section-sub {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.76);
+      margin-bottom: 6px;
+    }
+
+    .league-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+      margin-top: 4px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(6, 6, 18, 0.98);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .league-table thead {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .league-table th,
+    .league-table td {
+      padding: 6px 8px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .league-table th {
+      font-weight: 600;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: rgba(255, 255, 255, 0.7);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .league-table tr:nth-child(even) td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .price-cell {
+      font-weight: 600;
+      color: #f6c94c;
+    }
+
+    .tag-chip {
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: rgba(53, 213, 136, 0.12);
+      border: 1px solid rgba(53, 213, 136, 0.4);
+      color: rgba(214, 255, 227, 0.9);
+    }
+
+    .tag-chip.neutral {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.16);
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .section-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .section-footer a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .section-footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+
+    footer {
+      margin-top: 28px;
+      padding: 16px 4px 4px;
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.65);
+      text-align: center;
+    }
+
+    footer span.dove {
+      margin-left: 6px;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .brand {
+        flex: 1 1 auto;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 0.85rem;
+      }
+
+      .hero {
+        padding: 22px 18px 20px;
+      }
+
+      .hero-heading {
+        font-size: 2.2rem;
+      }
+
+      .sections {
+        margin-top: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <header>
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="brand-logo">
+            <!-- Replace src if your logo filename is different -->
+            <img src="purapad-logo.png" alt="PuraPad logo" />
+          </div>
+          <div>
+            <div class="brand-text-main">PuraPad</div>
+            <div class="brand-text-sub">Part of PuraWorld</div>
+          </div>
+        </div>
+
+        <nav class="nav-links">
+          <a href="#buy">Buy</a>
+          <a href="#rent">Rent</a>
+          <a href="#stay">Short Stay</a>
+          <a href="#new-dev">New Developments</a>
+          <a href="#agents">Agents</a>
+          <a href="#login" class="nav-login">Login</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="hero-topline">
+            <span class="badge">Smart · Ethical · Pura</span>
+            <span>Housing that serves people first.</span>
+          </div>
+
+          <h1 class="hero-heading">Find Your Space in the World</h1>
+
+          <p class="hero-sub">
+            Homes that work for you — not just the market. Buy, rent, or book a stay on a platform
+            built to keep housing fair, transparent, and human.
+          </p>
+
+          <p class="hero-badge-row">
+            Rent <span class="dot">✦</span> Buy <span class="dot">✦</span> Short Stay
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#rent" class="btn-pill primary">Explore Rentals</a>
+            <a href="#buy" class="btn-pill secondary">Find a Home</a>
+            <a href="#stay" class="btn-pill outline">Book a Stay</a>
+          </div>
+
+          <div class="hero-meta-row">
+            <div class="hero-meta-pill">
+              <span class="dot"></span>
+              Zero % platform fee on first deals*
+            </div>
+            <div class="hero-meta-pill">
+              <span class="dot"></span>
+              Built under the PuraWorld housing mission
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- THREE LEAGUE-TABLE STYLE SECTIONS -->
+
+      <section class="sections">
+        <!-- BUY -->
+        <article class="section-card" id="buy">
+          <div class="section-card-inner">
+            <div class="section-label">Buy</div>
+            <div class="section-title-row">
+              <h2 class="section-title">Top Value First-Time Buys</h2>
+              <div class="section-chip">
+                <span class="dot"></span>
+                From £140k
+              </div>
+            </div>
+            <p class="section-sub">
+              Snapshot of buyer-friendly listings: realistic prices, clear fees, and no bidding-war
+              nonsense.
+            </p>
+
+            <table class="league-table">
+              <thead>
+                <tr>
+                  <th>Area</th>
+                  <th>Beds</th>
+                  <th>From</th>
+                  <th>Highlight</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Newquay</td>
+                  <td>2</td>
+                  <td class="price-cell">£185,000</td>
+                  <td><span class="tag-chip">Sea-view starter</span></td>
+                </tr>
+                <tr>
+                  <td>Truro</td>
+                  <td>3</td>
+                  <td class="price-cell">£210,000</td>
+                  <td><span class="tag-chip neutral">Near schools</span></td>
+                </tr>
+                <tr>
+                  <td>Online-only</td>
+                  <td>1–2</td>
+                  <td class="price-cell">£140,000</td>
+                  <td><span class="tag-chip">Chain-free</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="section-footer">
+              <span>Live data coming with full launch.</span>
+              <a href="#login">View full buyer dashboard →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- RENT -->
+        <article class="section-card" id="rent">
+          <div class="section-card-inner">
+            <div class="section-label">Rent</div>
+            <div class="section-title-row">
+              <h2 class="section-title">Fair Rent League Table</h2>
+              <div class="section-chip">
+                <span class="dot"></span>
+                Capped fees
+              </div>
+            </div>
+            <p class="section-sub">
+              Rentals ranked on value, security, and landlord track record — not just who pays the
+              highest listing fee.
+            </p>
+
+            <table class="league-table">
+              <thead>
+                <tr>
+                  <th>Area</th>
+                  <th>Type</th>
+                  <th>From&nbsp;/&nbsp;mo</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Falmouth</td>
+                  <td>2-bed flat</td>
+                  <td class="price-cell">£950</td>
+                  <td><span class="tag-chip">Tenant-friendly</span></td>
+                </tr>
+                <tr>
+                  <td>Penzance</td>
+                  <td>1-bed</td>
+                  <td class="price-cell">£725</td>
+                  <td><span class="tag-chip neutral">Bills included</span></td>
+                </tr>
+                <tr>
+                  <td>Remote hosts</td>
+                  <td>Studios</td>
+                  <td class="price-cell">£600</td>
+                  <td><span class="tag-chip">Verified hosts</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="section-footer">
+              <span>Scored using PuraPad’s fair-rent metrics.</span>
+              <a href="#login">See full rent league →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- SHORT STAY -->
+        <article class="section-card" id="stay">
+          <div class="section-card-inner">
+            <div class="section-label">Short Stay</div>
+            <div class="section-title-row">
+              <h2 class="section-title">Ethical Stays & Breaks</h2>
+              <div class="section-chip">
+                <span class="dot"></span>
+                Host-first & Guest-first
+              </div>
+            </div>
+            <p class="section-sub">
+              Short stays that don’t hollow out communities — fairly priced, locally rooted, and
+              transparent.
+            </p>
+
+            <table class="league-table">
+              <thead>
+                <tr>
+                  <th>Location</th>
+                  <th>Type</th>
+                  <th>From / night</th>
+                  <th>Highlight</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>St Ives</td>
+                  <td>Cottage</td>
+                  <td class="price-cell">£120</td>
+                  <td><span class="tag-chip">Local-owner</span></td>
+                </tr>
+                <tr>
+                  <td>Fistral</td>
+                  <td>Surf apartment</td>
+                  <td class="price-cell">£95</td>
+                  <td><span class="tag-chip neutral">Off-season rates</span></td>
+                </tr>
+                <tr>
+                  <td>Cornwall coast</td>
+                  <td>Cabins</td>
+                  <td class="price-cell">£80</td>
+                  <td><span class="tag-chip">Low-impact stays</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="section-footer">
+              <span>Designed to sit alongside Airbnb, not copy it.</span>
+              <a href="#login">Preview host & guest tools →</a>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      © 2025 PuraPad — Part of PuraWorld
+      <span class="dove">🕊</span>
+    </footer>
+  </div>
+</body>
+</html>
