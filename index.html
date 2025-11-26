@@ -3,147 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PuraPad — Live Anywhere, Belong Everywhere</title>
-
-  <!-- Inline CSS for easy deployment -->
+  <title>PuraPad — Buy · Rent · Stay</title>
+  <meta
+    name="description"
+    content="PuraPad is the PuraWorld home for buying, renting, and short stays — homes that work for you, not just the market."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
     :root {
-      --pura-navy: #0a0d16;
-      --pura-purple: #7c4ddc;
-      --pura-silver: #e3e8ef;
-      --gradient-main: linear-gradient(180deg, #0a0d16 0%, #1d0f39 40%, #7c4ddc 100%);
+      --bg-top: #1d0f39;
+      --bg-mid: #7c4ddc;
+      --bg-bottom: #1d0f39;
+      --card-bg: rgba(8, 8, 20, 0.82);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --accent: #f6c94c;
+      --accent-soft: rgba(246, 201, 76, 0.14);
+      --text-main: #ffffff;
+      --text-soft: rgba(255, 255, 255, 0.8);
+      --pill-bg: rgba(15, 15, 35, 0.9);
+      --nav-bg: rgba(8, 8, 20, 0.9);
+      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.45);
+      --radius-lg: 999px;
+      --radius-card: 24px;
+      --radius-pill: 999px;
+      --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
+      --transition-fast: 180ms ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--gradient-main);
-      color: white;
+      min-height: 100vh;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      background: radial-gradient(circle at top left, #9b3af9 0, transparent 55%),
+        radial-gradient(circle at bottom right, #1da3f3 0, transparent 55%),
+        linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 40%, var(--bg-bottom) 100%);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
       display: flex;
       flex-direction: column;
-      align-items: center;
     }
 
-    nav {
-      width: 90%;
-      max-width: 1100px;
-      padding: 22px 0;
+    .page-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 16px 40px;
+    }
+
+    /* HEADER / NAV */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        90deg,
+        rgba(10, 10, 24, 0.96),
+        rgba(10, 10, 24, 0.92)
+      );
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
+      margin-bottom: 24px;
+    }
+
+    .nav-inner {
       display: flex;
+      align-items: center;
       justify-content: space-between;
+      padding: 10px 18px;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
       align-items: center;
+      gap: 10px;
     }
 
-    nav img {
-      height: 42px;
-    }
-
-    nav ul {
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 0%, #f9e9ff 0, #9b3af9 45%, #1d0f39 100%);
       display: flex;
-      gap: 28px;
-      list-style: none;
-      margin: 0;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--pura-silver);
-      font-weight: 500;
-      opacity: 0.92;
-    }
-
-    nav a:hover {
-      opacity: 1;
-    }
-
-    .hero {
-      width: 90%;
-      max-width: 800px;
-      text-align: center;
-      padding: 80px 0 60px;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin: 0;
-      font-weight: 700;
-    }
-
-    .subtitle {
-      font-size: 1.3rem;
-      margin-top: 14px;
-      opacity: 0.85;
-    }
-
-    .cta-container {
-      display: flex;
-      gap: 16px;
+      align-items: center;
       justify-content: center;
-      margin-top: 36px;
-      flex-wrap: wrap;
+      overflow: hidden;
     }
 
-    .cta {
-      background: var(--pura-silver);
-      padding: 14px 28px;
-      border-radius: 30px;
-      color: #1d0f39;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.2s;
+    .brand-logo img {
+      width: 110%;
+      height: auto;
+      display: block;
     }
 
-    .cta:hover {
-      opacity: 0.8;
+    .brand-text-main {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: 1.05rem;
     }
 
-    footer {
-      margin: 70px 0 30px;
-      font-size: 0.85rem;
-      opacity: 0.6;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-      nav ul {
-        display: none;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <nav>
-    <img src="https://i.imgur.com/nkXyQ1W.png" alt="PuraPad Logo" />
-    <ul>
-      <li><a href="#">Buy</a></li>
-      <li><a href="#">Rent</a></li>
-      <li><a href="#">Short Stay</a></li>
-      <li><a href="#">New Developments</a></li>
-      <li><a href="#">Agents</a></li>
-      <li><a href="#">Login</a></li>
-    </ul>
-  </nav>
-
-  <div class="hero">
-    <h1>Find Your Space in the World</h1>
-    <p class="subtitle">
-      Homes that work for you — not just the market.<br>
-      Rent ✦ Buy ✦ Short Stay
-    </p>
-
-    <div class="cta-container">
-      <a href="#" class="cta">Explore Rentals</a>
-      <a href="#" class="cta">Find a Home</a>
-      <a href="#" class="cta">Book a Stay</a>
-    </div>
-  </div>
-
-  <footer>
-    © 2025 PuraPad — Part of PuraWorld 🕊
-  </footer>
-
-</body>
-</html>
+    .brand-text-sub {
+      font-size: 0.7rem;
+      text-transform: uppercase;
