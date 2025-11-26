@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PuraPad — Live Anywhere, Belong Everywhere</title>
+
+  <!-- Inline CSS for easy deployment -->
+  <style>
+    :root {
+      --pura-navy: #0a0d16;
+      --pura-purple: #7c4ddc;
+      --pura-silver: #e3e8ef;
+      --gradient-main: linear-gradient(180deg, #0a0d16 0%, #1d0f39 40%, #7c4ddc 100%);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--gradient-main);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    nav {
+      width: 90%;
+      max-width: 1100px;
+      padding: 22px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav img {
+      height: 42px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      margin: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--pura-silver);
+      font-weight: 500;
+      opacity: 0.92;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    .hero {
+      width: 90%;
+      max-width: 800px;
+      text-align: center;
+      padding: 80px 0 60px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      margin-top: 14px;
+      opacity: 0.85;
+    }
+
+    .cta-container {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+
+    .cta {
+      background: var(--pura-silver);
+      padding: 14px 28px;
+      border-radius: 30px;
+      color: #1d0f39;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .cta:hover {
+      opacity: 0.8;
+    }
+
+    footer {
+      margin: 70px 0 30px;
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <img src="https://i.imgur.com/nkXyQ1W.png" alt="PuraPad Logo" />
+    <ul>
+      <li><a href="#">Buy</a></li>
+      <li><a href="#">Rent</a></li>
+      <li><a href="#">Short Stay</a></li>
+      <li><a href="#">New Developments</a></li>
+      <li><a href="#">Agents</a></li>
+      <li><a href="#">Login</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <h1>Find Your Space in the World</h1>
+    <p class="subtitle">
+      Homes that work for you — not just the market.<br>
+      Rent ✦ Buy ✦ Short Stay
+    </p>
+
+    <div class="cta-container">
+      <a href="#" class="cta">Explore Rentals</a>
+      <a href="#" class="cta">Find a Home</a>
+      <a href="#" class="cta">Book a Stay</a>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 PuraPad — Part of PuraWorld 🕊
+  </footer>
+
+</body>
+</html>
