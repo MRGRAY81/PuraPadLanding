@@ -53,7 +53,8 @@
       min-height: 100vh;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--text-main);
-      background: radial-gradient(circle at top left, #9b3af9 0, transparent 55%),
+      background:
+        radial-gradient(circle at top left, #9b3af9 0, transparent 55%),
         radial-gradient(circle at bottom right, #1da3f3 0, transparent 55%),
         linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 40%, var(--bg-bottom) 100%);
       background-attachment: fixed;
@@ -159,7 +160,8 @@
     .hero {
       padding: 28px 20px 26px;
       border-radius: 28px;
-      background: radial-gradient(circle at top left, rgba(155, 58, 249, 0.25), transparent 55%),
+      background:
+        radial-gradient(circle at top left, rgba(155, 58, 249, 0.25), transparent 55%),
         radial-gradient(circle at bottom right, rgba(29, 163, 243, 0.14), transparent 60%),
         linear-gradient(180deg, rgba(6, 6, 18, 0.96), rgba(10, 8, 30, 0.9));
       border: 1px solid rgba(255, 255, 255, 0.06);
@@ -501,6 +503,67 @@
       text-decoration: underline;
     }
 
+    /* LISTING MEDIA STRIP */
+
+    .listing-media {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .listing-thumb {
+      width: 80px;
+      height: 60px;
+      border-radius: 14px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(155, 58, 249, 0.55), transparent 65%),
+        radial-gradient(circle at bottom right, rgba(29, 163, 243, 0.5), transparent 65%),
+        linear-gradient(135deg, #100b22, #06040f);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .listing-thumb span {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.85;
+    }
+
+    .media-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .media-link-pill {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(6, 6, 20, 0.9);
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.75rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: background var(--transition-fast), color var(--transition-fast),
+        transform 140ms ease-out;
+    }
+
+    .media-link-pill:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-1px);
+    }
+
     /* MORTGAGE CARD */
 
     .mortgage-card {
@@ -759,6 +822,21 @@
               </tbody>
             </table>
 
+            <!-- Listing media strip -->
+            <div class="listing-media">
+              <div class="listing-thumb" aria-hidden="true">
+                <span>Listing</span>
+              </div>
+              <div>
+                <div>Preview media for featured listings.</div>
+                <div class="media-links">
+                  <a href="#" class="media-link-pill">Photos</a>
+                  <a href="#" class="media-link-pill">Video tour</a>
+                  <a href="#" class="media-link-pill">3D walk-through</a>
+                </div>
+              </div>
+            </div>
+
             <!-- MORTGAGE CALCULATOR -->
             <div class="mortgage-card">
               <h3 class="mortgage-title">Quick Mortgage Estimate</h3>
@@ -900,6 +978,20 @@
               </tbody>
             </table>
 
+            <div class="listing-media">
+              <div class="listing-thumb" aria-hidden="true">
+                <span>Listing</span>
+              </div>
+              <div>
+                <div>Preview interiors and neighbourhood feel.</div>
+                <div class="media-links">
+                  <a href="#" class="media-link-pill">Photos</a>
+                  <a href="#" class="media-link-pill">Video tour</a>
+                  <a href="#" class="media-link-pill">3D walk-through</a>
+                </div>
+              </div>
+            </div>
+
             <div class="section-footer">
               <span>Scored using PuraPad’s fair-rent metrics.</span>
               <a href="#login">See full rent league →</a>
@@ -953,6 +1045,20 @@
                 </tr>
               </tbody>
             </table>
+
+            <div class="listing-media">
+              <div class="listing-thumb" aria-hidden="true">
+                <span>Stay</span>
+              </div>
+              <div>
+                <div>See vibe, views and room layout before you book.</div>
+                <div class="media-links">
+                  <a href="#" class="media-link-pill">Photos</a>
+                  <a href="#" class="media-link-pill">Video tour</a>
+                  <a href="#" class="media-link-pill">3D walk-through</a>
+                </div>
+              </div>
+            </div>
 
             <div class="section-footer">
               <span>Designed to sit alongside Airbnb, not copy it.</span>
