@@ -22,16 +22,10 @@
       --card-bg: rgba(8, 8, 20, 0.82);
       --card-border: rgba(255, 255, 255, 0.12);
       --accent: #f6c94c;
-      --accent-soft: rgba(246, 201, 76, 0.14);
       --text-main: #ffffff;
       --text-soft: rgba(255, 255, 255, 0.8);
-      --pill-bg: rgba(15, 15, 35, 0.9);
-      --nav-bg: rgba(8, 8, 20, 0.9);
       --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.45);
-      --radius-lg: 999px;
       --radius-card: 24px;
-      --radius-pill: 999px;
-      --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
       --transition-fast: 180ms ease-out;
     }
 
@@ -41,7 +35,7 @@
       padding: 0;
     }
 
-    /* Screen reader only - visually hidden but accessible to assistive technology */
+    /* Screen reader only */
     .sr-only {
       position: absolute;
       width: 1px;
@@ -107,9 +101,9 @@
     }
 
     .brand-logo {
-      width: 32px;
-      height: 32px;
-      border-radius: 12px;
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
       background: radial-gradient(circle at 30% 0%, #f9e9ff 0, #9b3af9 45%, #1d0f39 100%);
       display: flex;
       align-items: center;
@@ -118,22 +112,9 @@
     }
 
     .brand-logo img {
-      width: 110%;
+      width: 115%;
       height: auto;
       display: block;
-    }
-
-    .brand-text-main {
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      font-size: 1.05rem;
-    }
-
-    .brand-text-sub {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      opacity: 0.7;
-      letter-spacing: 0.14em;
     }
 
     .nav-links {
@@ -159,12 +140,6 @@
       background: rgba(255, 255, 255, 0.06);
       color: #ffffff;
       transform: translateY(-1px);
-    }
-
-    .nav-links a.nav-primary {
-      background: rgba(255, 255, 255, 0.08);
-      padding-inline: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .nav-links a.nav-login {
@@ -244,7 +219,7 @@
 
     .btn-pill {
       padding: 10px 18px;
-      border-radius: var(--radius-pill);
+      border-radius: 999px;
       border: 1px solid rgba(255, 255, 255, 0.18);
       background: rgba(255, 255, 255, 0.06);
       color: #ffffff;
@@ -314,12 +289,61 @@
       background: rgba(255, 255, 255, 0.6);
     }
 
-    /* THREE SECTIONS — LEAGUE TABLE STYLE */
+    /* REMIX FILTER */
+
+    .section-filter {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .section-filter-label {
+      opacity: 0.85;
+    }
+
+    .section-filter-buttons {
+      display: inline-flex;
+      gap: 6px;
+      padding: 3px;
+      border-radius: 999px;
+      background: rgba(10, 10, 24, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .filter-btn {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast),
+        transform 140ms ease-out;
+    }
+
+    .filter-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, #f6c94c, #ff9f3f);
+      color: #151319;
+      font-weight: 600;
+    }
+
+    /* SECTIONS — STACKED FULL-WIDTH ROWS */
 
     .sections {
-      margin-top: 26px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
       gap: 18px;
     }
 
@@ -334,6 +358,7 @@
       gap: 10px;
       position: relative;
       overflow: hidden;
+      width: 100%;
     }
 
     .section-card::before {
@@ -473,72 +498,89 @@
       text-decoration: underline;
     }
 
-    /* Mortgage calculator inside the Buy card */
+    /* MORTGAGE CARD */
 
-    .mortgage-calculator {
+    .mortgage-card {
       margin-top: 10px;
-      padding: 10px 12px 12px;
+      padding: 12px 12px 14px;
       border-radius: 16px;
-      background: rgba(6, 6, 18, 0.95);
+      background: rgba(4, 4, 12, 0.96);
       border: 1px solid rgba(255, 255, 255, 0.12);
-      font-size: 0.78rem;
     }
 
-    .mortgage-header h3 {
+    .mortgage-title {
       font-size: 0.9rem;
       font-weight: 600;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
 
-    .mortgage-header p {
+    .mortgage-sub {
       font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.78);
+      margin-bottom: 10px;
     }
 
     .mortgage-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px 10px;
-      margin-top: 8px;
+      gap: 10px;
+      margin-bottom: 10px;
     }
 
     .mortgage-field label {
       display: block;
-      font-size: 0.72rem;
-      color: rgba(255, 255, 255, 0.76);
-      margin-bottom: 2px;
+      font-size: 0.75rem;
+      margin-bottom: 4px;
+      color: rgba(255, 255, 255, 0.8);
     }
 
     .mortgage-field input {
       width: 100%;
-      padding: 6px 10px;
+      padding: 7px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(8, 8, 20, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(10, 10, 26, 0.96);
       color: #ffffff;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
     }
 
     .mortgage-field input::placeholder {
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.42);
     }
 
-    .mortgage-actions {
-      margin-top: 8px;
-      display: flex;
-      justify-content: flex-end;
+    .mortgage-submit {
+      margin-top: 2px;
+      text-align: center;
     }
 
-    .btn-pill.small {
-      padding: 7px 14px;
-      font-size: 0.78rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    .mortgage-submit button {
+      width: 100%;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #f6c94c, #ff9f3f);
+      color: #151319;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.65);
+      transition: transform 140ms ease-out, box-shadow var(--transition-fast);
+    }
+
+    .mortgage-submit button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.8);
     }
 
     .mortgage-result {
-      margin-top: 6px;
-      font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.8);
+      margin-top: 8px;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .mortgage-result strong {
+      font-weight: 600;
+      color: #f6c94c;
     }
 
     /* FOOTER */
@@ -563,7 +605,7 @@
       }
 
       .brand {
-        flex: 1 1 auto;
+        flex: 0 0 auto;
       }
 
       .nav-links {
@@ -582,12 +624,8 @@
         font-size: 2.2rem;
       }
 
-      .sections {
-        margin-top: 22px;
-      }
-
       .mortgage-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
     }
   </style>
@@ -598,12 +636,7 @@
       <div class="nav-inner">
         <div class="brand">
           <div class="brand-logo">
-            <!-- Replace src if your logo filename is different -->
             <img src="purapad-logo.png" alt="PuraPad logo" />
-          </div>
-          <div>
-            <div class="brand-text-main">PuraPad</div>
-            <div class="brand-text-sub">Part of PuraWorld</div>
           </div>
         </div>
 
@@ -656,7 +689,24 @@
         </div>
       </section>
 
-      <!-- THREE LEAGUE-TABLE STYLE SECTIONS -->
+      <!-- REMIX FILTER -->
+
+      <div class="section-filter" aria-label="Choose which section to show first">
+        <span class="section-filter-label">Show first:</span>
+        <div class="section-filter-buttons" role="tablist">
+          <button class="filter-btn active" data-focus="buy" type="button" role="tab">
+            Buy
+          </button>
+          <button class="filter-btn" data-focus="rent" type="button" role="tab">
+            Rent
+          </button>
+          <button class="filter-btn" data-focus="stay" type="button" role="tab">
+            Short Stay
+          </button>
+        </div>
+      </div>
+
+      <!-- STACKED SECTIONS -->
 
       <section class="sections">
         <!-- BUY -->
@@ -678,10 +728,10 @@
             <table class="league-table">
               <thead>
                 <tr>
-                  <th>Area</th>
-                  <th>Beds</th>
-                  <th>From</th>
-                  <th>Highlight</th>
+                  <th scope="col">Area</th>
+                  <th scope="col">Beds</th>
+                  <th scope="col">From</th>
+                  <th scope="col">Highlight</th>
                 </tr>
               </thead>
               <tbody>
@@ -706,24 +756,14 @@
               </tbody>
             </table>
 
-            <!-- Mortgage calculator -->
-            <div
-              class="mortgage-calculator"
-              id="mortgage-calculator"
-              aria-labelledby="mortgage-title"
-            >
-              <div class="mortgage-header">
-                <h3 id="mortgage-title">Quick Mortgage Estimate</h3>
-                <p id="mortgage-help" class="sr-only">
-                  Enter property price, deposit percentage, interest rate and term to
-                  estimate a rough monthly payment.
-                </p>
-                <p aria-hidden="true">
-                  Rough guide only – speak to an adviser for exact figures.
-                </p>
-              </div>
+            <!-- MORTGAGE CALCULATOR -->
+            <div class="mortgage-card">
+              <h3 class="mortgage-title">Quick Mortgage Estimate</h3>
+              <p class="mortgage-sub">
+                Rough guide only — speak to an adviser for exact figures.
+              </p>
 
-              <form id="mortgage-form" aria-describedby="mortgage-help">
+              <form id="mortgage-form" class="mortgage-form" aria-describedby="mortgage-help">
                 <div class="mortgage-grid">
                   <div class="mortgage-field">
                     <label for="propertyPrice">Property price (£)</label>
@@ -734,6 +774,8 @@
                       inputmode="decimal"
                       autocomplete="off"
                       placeholder="e.g. 220000"
+                      min="0"
+                      step="1000"
                       required
                     />
                   </div>
@@ -747,7 +789,9 @@
                       inputmode="decimal"
                       autocomplete="off"
                       placeholder="10"
-                      value="10"
+                      min="0"
+                      max="99"
+                      step="1"
                       required
                     />
                   </div>
@@ -761,7 +805,8 @@
                       inputmode="decimal"
                       autocomplete="off"
                       placeholder="4.5"
-                      value="4.5"
+                      min="0"
+                      step="0.01"
                       required
                     />
                   </div>
@@ -772,21 +817,26 @@
                       id="termYears"
                       name="termYears"
                       type="number"
-                      inputmode="decimal"
+                      inputmode="numeric"
                       autocomplete="off"
                       placeholder="25"
-                      value="25"
+                      min="1"
+                      max="40"
+                      step="1"
                       required
                     />
                   </div>
                 </div>
 
-                <div class="mortgage-actions">
-                  <button type="submit" class="btn-pill primary small">
-                    Estimate monthly payment
-                  </button>
+                <div class="mortgage-submit">
+                  <button type="submit">Estimate monthly payment</button>
                 </div>
               </form>
+
+              <div id="mortgage-help" class="sr-only">
+                Enter property price, deposit percentage, interest rate and term to estimate
+                monthly payment.
+              </div>
 
               <p id="mortgage-result" class="mortgage-result" aria-live="polite">
                 Monthly payment: <strong>—</strong>
@@ -819,10 +869,10 @@
             <table class="league-table">
               <thead>
                 <tr>
-                  <th>Area</th>
-                  <th>Type</th>
-                  <th>From&nbsp;/&nbsp;mo</th>
-                  <th>Score</th>
+                  <th scope="col">Area</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">From&nbsp;/&nbsp;mo</th>
+                  <th scope="col">Score</th>
                 </tr>
               </thead>
               <tbody>
@@ -859,10 +909,10 @@
           <div class="section-card-inner">
             <div class="section-label">Short Stay</div>
             <div class="section-title-row">
-              <h2 class="section-title">Ethical Stays & Breaks</h2>
+              <h2 class="section-title">Ethical Stays &amp; Breaks</h2>
               <div class="section-chip">
                 <span class="dot"></span>
-                Host-first & Guest-first
+                Host-first &amp; Guest-first
               </div>
             </div>
             <p class="section-sub">
@@ -873,10 +923,10 @@
             <table class="league-table">
               <thead>
                 <tr>
-                  <th>Location</th>
-                  <th>Type</th>
-                  <th>From / night</th>
-                  <th>Highlight</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">From / night</th>
+                  <th scope="col">Highlight</th>
                 </tr>
               </thead>
               <tbody>
@@ -903,7 +953,7 @@
 
             <div class="section-footer">
               <span>Designed to sit alongside Airbnb, not copy it.</span>
-              <a href="#login">Preview host & guest tools →</a>
+              <a href="#login">Preview host &amp; guest tools →</a>
             </div>
           </div>
         </article>
@@ -917,60 +967,83 @@
   </div>
 
   <script>
+    // Mortgage calculator
     (function () {
       const form = document.getElementById("mortgage-form");
-      const resultWrapper = document.getElementById("mortgage-result");
-      if (!form || !resultWrapper) return;
+      const resultEl = document.getElementById("mortgage-result");
 
-      const resultStrong = resultWrapper.querySelector("strong");
-
-      function formatGBP(amount) {
-        return (
-          "£" +
-          amount
-            .toFixed(0)
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-        );
-      }
+      if (!form || !resultEl) return;
 
       form.addEventListener("submit", function (e) {
         e.preventDefault();
 
         const price = parseFloat(document.getElementById("propertyPrice").value);
-        const deposit = parseFloat(
-          document.getElementById("depositPercent").value
-        );
-        const rate = parseFloat(document.getElementById("interestRate").value);
-        const years = parseFloat(document.getElementById("termYears").value);
+        const depositPercent = parseFloat(document.getElementById("depositPercent").value);
+        const ratePercent = parseFloat(document.getElementById("interestRate").value);
+        const years = parseInt(document.getElementById("termYears").value, 10);
 
-        if (
-          isNaN(price) ||
-          isNaN(deposit) ||
-          isNaN(rate) ||
-          isNaN(years) ||
-          price <= 0 ||
-          years <= 0
-        ) {
-          resultStrong.textContent = "—";
+        if (!price || !years || ratePercent < 0 || depositPercent < 0) {
+          resultEl.innerHTML = 'Monthly payment: <strong>—</strong>';
           return;
         }
 
-        const loanAmount = price * (1 - deposit / 100);
-        const monthlyRate = rate / 100 / 12;
+        const deposit = price * (depositPercent / 100);
+        const principal = price - deposit;
+        const monthlyRate = ratePercent / 100 / 12;
         const n = years * 12;
 
         let monthly;
         if (monthlyRate === 0) {
-          monthly = loanAmount / n;
+          monthly = principal / n;
         } else {
           const factor = Math.pow(1 + monthlyRate, n);
-          monthly = (loanAmount * monthlyRate * factor) / (factor - 1);
+          monthly = principal * (monthlyRate * factor) / (factor - 1);
         }
 
-        resultStrong.textContent = formatGBP(monthly);
+        if (!isFinite(monthly)) {
+          resultEl.innerHTML = 'Monthly payment: <strong>—</strong>';
+          return;
+        }
+
+        const formatted = monthly.toLocaleString("en-GB", {
+          style: "currency",
+          currency: "GBP",
+          maximumFractionDigits: 0
+        });
+
+        resultEl.innerHTML = 'Monthly payment: <strong>' + formatted + "</strong>";
+      });
+    })();
+
+    // Remix filter: reorder sections Buy / Rent / Stay
+    (function () {
+      const container = document.querySelector(".sections");
+      const buttons = document.querySelectorAll(".filter-btn");
+
+      if (!container || !buttons.length) return;
+
+      const orders = {
+        buy: ["buy", "rent", "stay"],
+        rent: ["rent", "buy", "stay"],
+        stay: ["stay", "rent", "buy"]
+      };
+
+      function applyOrder(key) {
+        const ids = orders[key] || orders.buy;
+        ids.forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) container.appendChild(el);
+        });
+      }
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const focus = btn.dataset.focus;
+          buttons.forEach((b) => b.classList.toggle("active", b === btn));
+          applyOrder(focus);
+        });
       });
     })();
   </script>
 </body>
-  </html>
+</html>
