@@ -41,6 +41,7 @@
       padding: 0;
     }
 
+    /* Screen reader only - visually hidden but accessible to assistive technology */
     .sr-only {
       position: absolute;
       width: 1px;
@@ -472,6 +473,74 @@
       text-decoration: underline;
     }
 
+    /* Mortgage calculator inside the Buy card */
+
+    .mortgage-calculator {
+      margin-top: 10px;
+      padding: 10px 12px 12px;
+      border-radius: 16px;
+      background: rgba(6, 6, 18, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.78rem;
+    }
+
+    .mortgage-header h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .mortgage-header p {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .mortgage-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 10px;
+      margin-top: 8px;
+    }
+
+    .mortgage-field label {
+      display: block;
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.76);
+      margin-bottom: 2px;
+    }
+
+    .mortgage-field input {
+      width: 100%;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(8, 8, 20, 0.96);
+      color: #ffffff;
+      font-size: 0.8rem;
+    }
+
+    .mortgage-field input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .mortgage-actions {
+      margin-top: 8px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .btn-pill.small {
+      padding: 7px 14px;
+      font-size: 0.78rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .mortgage-result {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
     /* FOOTER */
 
     footer {
@@ -485,19 +554,6 @@
     footer span.dove {
       margin-left: 6px;
       font-size: 0.88rem;
-    }
-
-    /* Screen reader only - visually hidden but accessible to assistive technology */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
     }
 
     @media (max-width: 720px) {
@@ -528,6 +584,10 @@
 
       .sections {
         margin-top: 22px;
+      }
+
+      .mortgage-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -645,6 +705,93 @@
                 </tr>
               </tbody>
             </table>
+
+            <!-- Mortgage calculator -->
+            <div
+              class="mortgage-calculator"
+              id="mortgage-calculator"
+              aria-labelledby="mortgage-title"
+            >
+              <div class="mortgage-header">
+                <h3 id="mortgage-title">Quick Mortgage Estimate</h3>
+                <p id="mortgage-help" class="sr-only">
+                  Enter property price, deposit percentage, interest rate and term to
+                  estimate a rough monthly payment.
+                </p>
+                <p aria-hidden="true">
+                  Rough guide only – speak to an adviser for exact figures.
+                </p>
+              </div>
+
+              <form id="mortgage-form" aria-describedby="mortgage-help">
+                <div class="mortgage-grid">
+                  <div class="mortgage-field">
+                    <label for="propertyPrice">Property price (£)</label>
+                    <input
+                      id="propertyPrice"
+                      name="propertyPrice"
+                      type="number"
+                      inputmode="decimal"
+                      autocomplete="off"
+                      placeholder="e.g. 220000"
+                      required
+                    />
+                  </div>
+
+                  <div class="mortgage-field">
+                    <label for="depositPercent">Deposit (%)</label>
+                    <input
+                      id="depositPercent"
+                      name="depositPercent"
+                      type="number"
+                      inputmode="decimal"
+                      autocomplete="off"
+                      placeholder="10"
+                      value="10"
+                      required
+                    />
+                  </div>
+
+                  <div class="mortgage-field">
+                    <label for="interestRate">Interest rate (% per year)</label>
+                    <input
+                      id="interestRate"
+                      name="interestRate"
+                      type="number"
+                      inputmode="decimal"
+                      autocomplete="off"
+                      placeholder="4.5"
+                      value="4.5"
+                      required
+                    />
+                  </div>
+
+                  <div class="mortgage-field">
+                    <label for="termYears">Term (years)</label>
+                    <input
+                      id="termYears"
+                      name="termYears"
+                      type="number"
+                      inputmode="decimal"
+                      autocomplete="off"
+                      placeholder="25"
+                      value="25"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="mortgage-actions">
+                  <button type="submit" class="btn-pill primary small">
+                    Estimate monthly payment
+                  </button>
+                </div>
+              </form>
+
+              <p id="mortgage-result" class="mortgage-result" aria-live="polite">
+                Monthly payment: <strong>—</strong>
+              </p>
+            </div>
 
             <div class="section-footer">
               <span>Live data coming with full launch.</span>
@@ -768,5 +915,62 @@
       <span class="dove">🕊</span>
     </footer>
   </div>
+
+  <script>
+    (function () {
+      const form = document.getElementById("mortgage-form");
+      const resultWrapper = document.getElementById("mortgage-result");
+      if (!form || !resultWrapper) return;
+
+      const resultStrong = resultWrapper.querySelector("strong");
+
+      function formatGBP(amount) {
+        return (
+          "£" +
+          amount
+            .toFixed(0)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        );
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const price = parseFloat(document.getElementById("propertyPrice").value);
+        const deposit = parseFloat(
+          document.getElementById("depositPercent").value
+        );
+        const rate = parseFloat(document.getElementById("interestRate").value);
+        const years = parseFloat(document.getElementById("termYears").value);
+
+        if (
+          isNaN(price) ||
+          isNaN(deposit) ||
+          isNaN(rate) ||
+          isNaN(years) ||
+          price <= 0 ||
+          years <= 0
+        ) {
+          resultStrong.textContent = "—";
+          return;
+        }
+
+        const loanAmount = price * (1 - deposit / 100);
+        const monthlyRate = rate / 100 / 12;
+        const n = years * 12;
+
+        let monthly;
+        if (monthlyRate === 0) {
+          monthly = loanAmount / n;
+        } else {
+          const factor = Math.pow(1 + monthlyRate, n);
+          monthly = (loanAmount * monthlyRate * factor) / (factor - 1);
+        }
+
+        resultStrong.textContent = formatGBP(monthly);
+      });
+    })();
+  </script>
 </body>
-</html>
+  </html>
